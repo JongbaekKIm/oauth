@@ -1,5 +1,6 @@
 package com.oauth.oauth.configuration;
 
+import com.oauth.oauth.service.UserDetailService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

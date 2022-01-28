@@ -1,5 +1,6 @@
 package com.oauth.oauth.configuration;
 
+import com.oauth.oauth.service.UserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
@@ -28,8 +29,13 @@ public class Oauth2AuthorizationConfig extends AuthorizationServerConfigurerAdap
                 .scopes("read", "write") // 가능한 접근 범위 .accessTokenValiditySeconds(60) // 토큰 유효 시간 : 1분
                 .refreshTokenValiditySeconds(60 * 60) // 토큰 유효 시간 : 1시간
                 .redirectUris("http://localhost:8081/callback") // 가능한 redirect uri
-                .autoApprove(true); // 권한 동의는 자동으로 yes (false 로 할시 권한 동의 여부를 묻는다.) } // 인증, 토큰 설정
+                .autoApprove(true); // 권한 동의는 자동으로 yes (false 로 할시 권한 동의 여부를 묻는다.)
+    }
 
-        @Override public void configure (AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-            endpoints.userDetailsService(userDetailService); // refrash token 발행시 유저 정보 검사 하는데 사용하는 서비스 설정 } }
+    // 인증, 토큰 설정
+    @Override
+    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+        endpoints.userDetailsService(userDetailService); // refrash token 발행시 유저 정보 검사 하는데 사용하는 서비스 설정
+    }
+}
 
