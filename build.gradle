@@ -21,7 +21,8 @@ dependencies {
 	implementation group: 'org.springframework.security.oauth', name: 'spring-security-oauth2', version: '2.3.4.RELEASE' // spring oauth 2.0
 	implementation 'org.apache.commons:commons-lang3:3.8' // 유틸리티 사용을 위함
 	implementation 'com.konghq:unirest-java:3.7.02'
-	implementation 'org.projectlombok:lombok:1.18.20'// http 통신을 쉽게 하기 위함
+	implementation 'org.projectlombok:lombok:1.18.20'
+	implementation 'org.junit.jupiter:junit-jupiter:5.8.1'// http 통신을 쉽게 하기 위함
 	compileOnly 'org.projectlombok:lombok' // 변수 get, set 함수 편리하게 만들기 위함
 	annotationProcessor 'org.projectlombok:lombok'
 	runtimeOnly 'mysql:mysql-connector-java' // mysql 사용

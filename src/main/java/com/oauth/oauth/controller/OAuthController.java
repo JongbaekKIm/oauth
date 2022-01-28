@@ -17,9 +17,9 @@ public class OAuthController { // 클라이언트가 구현해야하는 코드 -
         OauthToken.request.accessToken request = new OauthToken.request.accessToken() {{
             setCode(requestCode);
             setGrant_type("authorization_code");
-            setRedirect_uri("http://localhost:8081/callback");
+            setRedirect_uri("http://localhost:8080/callback");
         }}; // oauth 서버에 http 통신으로 토큰 발행
-        OauthToken.response oauthToken = Unirest.post("http://localhost:8081/oauth/token").header("Authorization", "Basic " + encodingCredentials).fields(request.getMapData()).asObject(OauthToken.response.class).getBody();
+        OauthToken.response oauthToken = Unirest.post("http://localhost:8080/oauth/token").header("Authorization", "Basic " + encodingCredentials).fields(request.getMapData()).asObject(OauthToken.response.class).getBody();
         return oauthToken;
     }
 }

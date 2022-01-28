@@ -28,7 +28,7 @@ public class Oauth2AuthorizationConfig extends AuthorizationServerConfigurerAdap
                 .authorizedGrantTypes("authorization_code", "password", "refresh_token") // 가능한 토큰 발행 타입
                 .scopes("read", "write") // 가능한 접근 범위 .accessTokenValiditySeconds(60) // 토큰 유효 시간 : 1분
                 .refreshTokenValiditySeconds(60 * 60) // 토큰 유효 시간 : 1시간
-                .redirectUris("http://localhost:8081/callback") // 가능한 redirect uri
+                .redirectUris("http://localhost:8080/callback") // 가능한 redirect uri
                 .autoApprove(true); // 권한 동의는 자동으로 yes (false 로 할시 권한 동의 여부를 묻는다.)
     }
 
